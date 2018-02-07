@@ -2,6 +2,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// Redux
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import appReducers from './reducers'
+
 // Components
 import App from './components/App';
 
@@ -13,5 +18,12 @@ import 'sanitize.css';
 import './index.css';
 
 // Bootstrap application
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore(appReducers);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+, document.getElementById('root'));
+
 registerServiceWorker();

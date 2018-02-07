@@ -10,6 +10,8 @@ export default class ContentService {
   /**
    * makeRequest
    * Performs a generic fetch request to a given URL.
+   * Let's use await rather than promises, because variety
+   * is the spice of life etc
    *
    * @param  {String} url         API endpoint
    * @param  {Object} options     Options object to pass to fetch
