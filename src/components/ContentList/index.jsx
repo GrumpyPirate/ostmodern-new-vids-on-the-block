@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 // Config
-import theme from '../../styles/theme';
+// import theme from '../../styles/theme';
 import { sets } from '../../config/contentSettings';
 
 // Utils
@@ -18,6 +18,10 @@ class ContentList extends Component {
     super(props);
 
     this.contentService = new ContentService();
+
+    this.state = {
+      sets: []
+    };
   } // /constructor
 
   getData () {
@@ -37,7 +41,14 @@ class ContentList extends Component {
   render () {
     return (
       <div className={this.props.className}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. In aliquid rerum, ipsam, labore consequuntur quo nostrum, repudiandae sapiente animi, ab iure. Earum accusantium provident fugiat nemo optio voluptatem, iusto eos!
+        {this.state.sets.length > 0
+          ? (
+            <ul>
+              <li>We have some sets</li>
+            </ul>
+          )
+          : <p>No sets found.</p>
+        }
       </div>
     );
   } // /render

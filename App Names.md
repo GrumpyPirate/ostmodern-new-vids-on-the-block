@@ -15,6 +15,7 @@ You've Got To Be Vidding Me
 No I Am Not Vidding On You
 Honey I Shrunk The Vids
 Stay Together for the Vids
+Vids (By MGMT)
 Vid-tastic
 Pop(corn) Culture
 Rivr
