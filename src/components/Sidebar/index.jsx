@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 // Vendor
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 // Components
 import Heading from '../Typography/Heading';
@@ -17,7 +18,11 @@ import { rem } from '../../utilities';
 import theme from '../../styles/theme';
 
 // Define components
-const NavHeading = styled(Heading)``;
+const NavHeading = styled(Heading)`
+  padding-bottom: ${rem(theme.verticalRhythm / 2)};
+  margin-bottom: ${rem(theme.verticalRhythm / 2)};
+  border-bottom: solid 1px currentColor;
+`;
 
 const Sidebar = ({ className, sets }) => {
   const hasSets = !!sets.length;
@@ -30,8 +35,6 @@ const Sidebar = ({ className, sets }) => {
             <NavHeading level={2} displayLevel={5}>Sets</NavHeading>
 
             <ul>
-              {console.log(sets)}
-
               {sets.map(set => (
                 <li key={set.uid}>
                   <SetLink set={set} />
@@ -100,16 +103,18 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps
-)(styled(Sidebar)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: ${rem(theme.elements.sidebar.width)};
-  height: 100%;
-  text-align: right;
-  background-color: ${theme.colors.shadeDark};
-  color: ${theme.colors.accentLight};
-  padding: 1rem;
-`);
+export default withRouter(
+  connect(
+    mapStateToProps
+  )(styled(Sidebar)`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: ${rem(theme.elements.sidebar.width)};
+    height: 100%;
+    text-align: right;
+    background-color: ${theme.colors.accentDark};
+    color: ${theme.colors.shadeLight};
+    padding: 1rem;
+  `)
+);

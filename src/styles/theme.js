@@ -54,6 +54,10 @@ const theme = {
       }
     }
   },
+  animation: {
+    duration: 100,
+    easing: 'ease-in-out'
+  },
   elements: {
     sidebar: {
       width: 240
