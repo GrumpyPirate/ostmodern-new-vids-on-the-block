@@ -1,4 +1,4 @@
-const BASE_URL = 'http://feature-code-test.skylark-cms.qa.aws.ostmodern.co.uk:8000';
+import { API_BASE_URL } from '../../config/contentSettings';
 
 export default class ContentService {
   constructor () {
@@ -24,24 +24,24 @@ export default class ContentService {
 
   // Sets
   getAllSets () {
-    return this.makeRequest(`${BASE_URL}/api/sets/`);
+    return this.makeRequest(`${API_BASE_URL}/api/sets/`);
   }
 
   getSet (uid) {
-    return this.makeRequest(`${BASE_URL}/api/sets/${uid}/`);
+    return this.makeRequest(`${API_BASE_URL}/api/sets/${uid}/`);
   }
 
   getSetItems (uid) {
-    return this.makeRequest(`${BASE_URL}/api/sets/${uid}/items/`);
+    return this.makeRequest(`${API_BASE_URL}/api/sets/${uid}/items/`);
   }
 
   // Episodes
   getEpisode (uid) {
-    return this.makeRequest(`${BASE_URL}/api/episodes/${uid}/`);
+    return this.makeRequest(`${API_BASE_URL}/api/episodes/${uid}/`);
   }
 
   // Dividers
   getDivider (uid) {
-    return this.makeRequest(`${BASE_URL}/api/dividers/${uid}/`);
+    return this.makeRequest(`${API_BASE_URL}/api/dividers/${uid}/`);
   }
 } // /class ContentService

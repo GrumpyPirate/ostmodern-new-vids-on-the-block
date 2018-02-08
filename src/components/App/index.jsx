@@ -86,15 +86,7 @@ class App extends Component {
               {/* /sets/{slug} */}
               {!!this.props.sets.length
                 && (
-                  <Route exact path="/sets/:slug" render={({ match }) => {
-                    const set = this.props.sets.find(
-                      set => set.slug.toLowerCase() === match.params.slug.toLowerCase()
-                    );
-
-                    return !!set
-                      ? <SetDetail set={set} />
-                      : <Redirect to="/" />; // no set for this slug? Redirect to index.
-                  }} />
+                  <Route exact path="/sets/:slug" component={SetDetail} />
                 )
               }
 
