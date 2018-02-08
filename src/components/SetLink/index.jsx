@@ -5,14 +5,20 @@ import PropTypes from 'prop-types';
 // Vendor
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { saturation, brightness } from 'chromatism';
 
 // Styles
 import theme from '../../styles/theme';
 
+const linkColours = {
+  idle: brightness(-20, saturation( -90, theme.colors.shadeLight ).hex).hex,
+  hover: theme.colors.shadeLight
+};
+
 // Define components
 const SetLink = ({ className, set }) => {
   return (
-    <NavLink className={className} to={`/sets/${set.slug}`}>
+    <NavLink to={`/sets/${set.slug}`} className={className}>
       {set.title}
     </NavLink>
   );
@@ -65,10 +71,42 @@ SetLink.propTypes = {
 };
 
 export default styled(SetLink)`
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
   white-space: nowrap;
-  color: inherit;
+  color: ${linkColours.idle};
   font-family: ${theme.type.headings.fontStack};
   font-weight: ${theme.type.headings.fontWeight};
   text-transform: uppercase;
   text-decoration: none;
+  transition: color ${theme.animation.duration}ms ${theme.animation.easing};
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: ${linkColours.hover};
+    transition-property: transform, visibility;
+    transition-duration: ${theme.animation.duration * 2}ms;
+    transition-timing-function: ${theme.animation.easing};
+    visibility: hidden;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+
+  &:hover,
+  &:focus,
+  &.active {
+    color: ${linkColours.hover};
+
+    &::after {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+  }
 `;
