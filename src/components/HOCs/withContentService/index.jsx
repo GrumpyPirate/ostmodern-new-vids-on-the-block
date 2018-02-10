@@ -1,27 +1,30 @@
 // React
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 // Utils
-import ContentService from '../../../services/ContentService';
+import ContentService from "../../../services/ContentService";
 
 // Define HOC
-const withContentService = (WrappedComponent) => {
+export default function withContentService(WrappedComponent) {
   return class extends Component {
-    constructor () {
-      super();
+    constructor(props) {
+      super(props);
       this.contentService = new ContentService();
     } // /constructor
 
-    render () {
-      return <WrappedComponent contentService={this.contentService} {...this.props} />
+    render() {
+      return (
+        <WrappedComponent
+          contentService={this.contentService}
+          {...this.props}
+        />
+      );
     }
-  }
-}; // /const withContentService;
+  }; // /return class
+} // /function withContentService
 
 // PropTypes
 withContentService.propTypes = {
-  Component: PropTypes.object.isRequired
+  WrappedComponent: PropTypes.object.isRequired
 };
-
-export default withContentService;

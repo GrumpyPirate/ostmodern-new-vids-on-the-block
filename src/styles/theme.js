@@ -1,5 +1,6 @@
 const theme = {
   grid: {
+    cols: 12,
     breakpoints: {
       sm: 480,
       md: 768,
@@ -8,23 +9,17 @@ const theme = {
     },
     maxWidth: 1440,
     gutter: {
-      edge: {
-        xs: 40,
-        lg: 176
-      },
-      col: {
-        xs: 8,
-        lg: 22
-      }
+      xs: 24,
+      lg: 30
     }
   },
   verticalRhythm: 24,
   colors: {
-    mainBrand: '#547369',
-    accentLight: '#90bbb6',
-    accentDark: '#205263',
-    shadeLight: '#e6cfa6',
-    shadeDark: '#202b2a'
+    mainBrand: "#547369",
+    accentLight: "#90bbb6",
+    accentDark: "#205263",
+    shadeLight: "#e6cfa6",
+    shadeDark: "#202b2a"
   },
   type: {
     body: {
@@ -56,11 +51,14 @@ const theme = {
   },
   animation: {
     duration: 100,
-    easing: 'ease-in-out'
+    easing: "ease-in-out"
   },
   elements: {
-    sidebar: {
-      width: 240
+    header: {
+      height: {
+        xs: 44,
+        lg: 64
+      }
     }
   }
 };
