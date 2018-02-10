@@ -1,7 +1,22 @@
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  background-color: #202b2a;
-  color: #e6cfa6;
+  font-family: "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+p,
+figure,
+blockquote,
+dl,
+ol,
+ul {
+  margin: 0 0 1.5rem;
+}
+
+hr {
+  padding: 0;
+  margin: 1.5rem 0;
+  background: 0;
+  border: 0;
+  border-top: solid 1px currentColor;
 }

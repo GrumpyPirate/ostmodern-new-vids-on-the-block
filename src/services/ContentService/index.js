@@ -1,10 +1,10 @@
-import { API_BASE_URL } from '../../config/contentSettings';
+import { API_BASE_URL } from "../../config/contentSettings";
 
 export default class ContentService {
-  constructor () {
+  constructor() {
     this.defaultFetchOptions = {
-      method: 'GET'
-    }
+      method: "GET"
+    };
   }
 
   /**
@@ -17,31 +17,40 @@ export default class ContentService {
    * @param  {Object} options     Options object to pass to fetch
    * @return {Promise<Object>}    Promise for a JSON object
    */
-  async makeRequest (url, options = this.defaultFetchOptions) {
+  async makeRequest(url, options = this.defaultFetchOptions) {
     const response = await fetch(url, options);
     return await response.json();
   }
 
+  // Generic request
+  getUrl(url) {
+    return this.makeRequest(`${API_BASE_URL}${url}`);
+  }
+
   // Sets
-  getAllSets () {
+  getAllSets() {
     return this.makeRequest(`${API_BASE_URL}/api/sets/`);
   }
 
-  getSet (uid) {
+  getSet(uid) {
     return this.makeRequest(`${API_BASE_URL}/api/sets/${uid}/`);
   }
 
-  getSetItems (uid) {
+  getSetImage(url) {
+    return this.makeRequest(`${API_BASE_URL}${url}`);
+  }
+
+  getSetItems(uid) {
     return this.makeRequest(`${API_BASE_URL}/api/sets/${uid}/items/`);
   }
 
   // Episodes
-  getEpisode (uid) {
-    return this.makeRequest(`${API_BASE_URL}/api/episodes/${uid}/`);
+  getEpisode(uid) {
+    return this.makeRequest(`${API_BASE_URL}/api/episodes/${uid}/items/`);
   }
 
   // Dividers
-  getDivider (uid) {
+  getDivider(uid) {
     return this.makeRequest(`${API_BASE_URL}/api/dividers/${uid}/`);
   }
 } // /class ContentService
