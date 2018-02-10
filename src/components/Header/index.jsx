@@ -3,8 +3,6 @@ import React, { Component } from "react";
 
 // Vendor
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import SVG from "react-svg";
 
 // Config
 import settings from "../../config/appSettings";
@@ -13,60 +11,15 @@ import settings from "../../config/appSettings";
 import { rem } from "../../utilities";
 
 // Components
+import Brand from "./Brand";
+import BrandImage from "./BrandImage";
 import Container from "../Layout/Container";
 
 // Styles
 import theme from "../../styles/theme";
 import { lgUp } from "../../styles/mediaQueries";
 
-// Images
-import Cassette from "../../images/cassette.svg";
-
-// Define Header
-const Brand = styled(Link)`
-  display: inline-block;
-  font-family: ${theme.type.headings.fontStack};
-  font-weight: ${theme.type.headings.fontWeight};
-  font-size: ${rem(theme.type.headings.h6.fontSize.xs)};
-  text-transform: uppercase;
-  color: ${theme.colors.accentDark};
-
-  &,
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
-
-  &:hover,
-  &:focus {
-    color: ${theme.colors.mainBrand};
-  }
-
-  @media ${lgUp} {
-    font-size: ${rem(theme.type.headings.h6.fontSize.lg)};
-  }
-`;
-
-const imgSize = 6;
-const BrandImage = styled(({ className }) => {
-  return (
-    <figure className={className}>
-      <SVG path={Cassette} />
-    </figure>
-  );
-})`
-  display: inline-block;
-  margin: -${imgSize / 2}em 0.5rem -${imgSize / 2}em -${imgSize / 2}em;
-  vertical-align: middle;
-
-  svg {
-    display: block;
-    width: ${imgSize}em;
-    height: ${imgSize}em;
-    fill: currentColor;
-  }
-`;
-
+// Define component
 class Header extends Component {
   render() {
     return (

@@ -14,10 +14,6 @@ import Row from "../../Layout/Row";
 import Column from "../../Layout/Column";
 import withContentService from "../../HOCs/withContentService";
 
-// Styles
-// import theme from '../../../styles/theme';
-// import { rem } from '../../../utilities';
-
 // Define components
 const StyledLink = styled(Link)`
   color: inherit;
@@ -45,54 +41,51 @@ class EpisodeDetailView extends Component {
     const { episodeDetail } = this.props;
 
     return (
-      <div className={this.props.className}>
-        <Container>
-          {/* Title */}
-          <Heading level={2}>{episodeDetail.title}</Heading>
+      <Container>
+        {/* Title */}
+        <Heading level={2}>{episodeDetail.title}</Heading>
 
-          <hr />
+        <hr />
 
-          {/* Back to set view */}
-          <p>
-            <StyledLink to="/collections/home">&lt; Back</StyledLink>
-          </p>
+        {/* Back to set view */}
+        <p>
+          <StyledLink to="/collections/home">&lt; Back</StyledLink>
+        </p>
 
-          <Row>
-            {/* Media */}
-            <Column md={6}>
-              <EpisodeDetailMedia />
-            </Column>
+        <Row>
+          {/* Media */}
+          <Column md={6}>
+            <EpisodeDetailMedia />
+          </Column>
 
-            {/* Synopsis */}
-            <Column md={6}>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
-                sunt modi, architecto, repellat eaque quasi voluptas autem
-                reiciendis! Cumque corporis a quas, ipsa sit!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Laboriosam pariatur, molestiae! Mollitia odio deserunt nihil at
-                ipsam illo, eaque illum amet consequuntur eius quidem sapiente
-                unde quos, aut a cupiditate ullam dolor cum veritatis!
-                Repudiandae, maiores ipsam. Minus accusantium, neque.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime
-                quas, ipsa deserunt nemo deleniti commodi animi iusto maiores!
-                Nemo, voluptas!
-              </p>
-            </Column>
-          </Row>
-        </Container>
-      </div>
+          {/* Synopsis */}
+          <Column md={6}>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
+              sunt modi, architecto, repellat eaque quasi voluptas autem
+              reiciendis! Cumque corporis a quas, ipsa sit!
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Laboriosam pariatur, molestiae! Mollitia odio deserunt nihil at
+              ipsam illo, eaque illum amet consequuntur eius quidem sapiente
+              unde quos, aut a cupiditate ullam dolor cum veritatis!
+              Repudiandae, maiores ipsam. Minus accusantium, neque.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime
+              quas, ipsa deserunt nemo deleniti commodi animi iusto maiores!
+              Nemo, voluptas!
+            </p>
+          </Column>
+        </Row>
+      </Container>
     );
   } // /render
 } // /class EpisodeDetailView
 
 // PropTypes
 EpisodeDetailView.propTypes = {
-  className: PropTypes.string.isRequired,
   episodeDetail: PropTypes.shape({
     created: PropTypes.string,
     // "2014-10-25T14:35:27.670000+00:00"
@@ -155,4 +148,4 @@ EpisodeDetailView.propTypes = {
   }).isRequired
 };
 
-export default withContentService(styled(EpisodeDetailView)``);
+export default withContentService(EpisodeDetailView);

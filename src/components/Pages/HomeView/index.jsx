@@ -1,9 +1,5 @@
 // React
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-
-// Vendor
-import styled from "styled-components";
+import React, { Component, Fragment } from "react";
 
 // Utils
 import { sets } from "../../../config/contentSettings";
@@ -14,10 +10,6 @@ import EpisodeListItem from "./EpisodeListItem";
 import Spinner from "../../Layout/Spinner";
 import Container from "../../Layout/Container";
 import withContentService from "../../HOCs/withContentService";
-
-// Styles
-// import theme from '../../../styles/theme';
-// import { rem } from '../../../utilities';
 
 // Define components
 class HomeView extends Component {
@@ -69,8 +61,6 @@ class HomeView extends Component {
 
   // Lifecycle
   componentDidMount() {
-    // Get sets, store them in redux store
-    // this.getSets();
     this.getHomeSet();
   }
 
@@ -78,7 +68,7 @@ class HomeView extends Component {
     const { episodes } = this.state;
 
     return (
-      <div className={this.props.className}>
+      <Fragment>
         <Spinner isLoading={this.state.isLoading} />
 
         {!!episodes.length && (
@@ -90,14 +80,9 @@ class HomeView extends Component {
             </EpisodeList>
           </Container>
         )}
-      </div>
+      </Fragment>
     );
   } // /render
 } // /class HomeView
 
-// PropTypes
-HomeView.propTypes = {
-  className: PropTypes.string.isRequired
-};
-
-export default withContentService(styled(HomeView)``);
+export default withContentService(HomeView);
