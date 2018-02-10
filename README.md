@@ -1,4 +1,4 @@
-# README
+# New Vids on the Block
 
 A simple React app, that displays data retrieved from a series of content APIs.
 
