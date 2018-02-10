@@ -2,14 +2,14 @@
 
 A simple React app, that displays data retrieved from a series of content APIs.
 
-Thank you for looking through, and for your consideration.
+Thank you for looking through this submission, and for your consideration.
 
 ## Running the app
 
-* Start local development: `yarn start`
-* Run unit tests: `yarn test`
 * Build for production: `yarn build`
 * Build and serve: `yarn serve`
+* Run unit tests: `yarn test`
+* Start local development: `yarn start`
 
 ## Development notes
 
